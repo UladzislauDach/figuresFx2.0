@@ -3,7 +3,7 @@ package com.dach.figuresfx.Figures;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public abstract class Figure {
+public abstract class Figure implements Drawable {
 
     public static final int FIGURE_TYPE_CIRCLE = 0;
     public static final int FIGURE_TYPE_RECTANGLE = 1;
@@ -60,5 +60,4 @@ public abstract class Figure {
         this.color = color;
     }
 
-    public abstract void draw (GraphicsContext gs);
 }

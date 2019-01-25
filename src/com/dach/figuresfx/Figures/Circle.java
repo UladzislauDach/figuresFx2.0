@@ -11,9 +11,9 @@ public class Circle extends Figure {
         super(Figure.FIGURE_TYPE_CIRCLE, cx, cy, lineWidth, color);
     }
 
-    public Circle (double cx, double cy, double lineWidth, Color color, double radius){
-        this(cx,cy, lineWidth, color);
-        this.radius = radius;
+    public Circle(double cx, double cy, double lineWidth, Color color, double radius) {
+        this(cx, cy, lineWidth, color);
+        this.radius = radius < 10 ? 10 : radius;
     }
 
     public double getRadius() {
@@ -44,7 +44,7 @@ public class Circle extends Figure {
     public void draw(GraphicsContext gc) {
         gc.setLineWidth(lineWidth);
         gc.setStroke(color);
-        gc.strokeOval(cx-radius, cy-radius, radius*2, radius*2);
+        gc.strokeOval(cx - radius, cy - radius, radius * 2, radius * 2);
 
     }
 }
