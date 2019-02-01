@@ -1,6 +1,5 @@
 package com.dach.figuresfx.Figures;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public abstract class Figure implements Drawable {
@@ -8,6 +7,8 @@ public abstract class Figure implements Drawable {
     public static final int FIGURE_TYPE_CIRCLE = 0;
     public static final int FIGURE_TYPE_RECTANGLE = 1;
     public static final int FIGURE_TYPE_TRIANGLE = 2;
+    public static final int FIGURE_TYPE_MYFIGURE = 3;
+    public static final int FIGURE_TYPE_STAR = 4;
 
     private int type;
 

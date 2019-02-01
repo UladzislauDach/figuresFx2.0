@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import org.apache.log4j.Logger;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ import java.util.ResourceBundle;
 public class MainScreenViewController implements Initializable {
     private List<Figure> figures = new ArrayList<>();
     private Random random;
+
+    private static final Logger LOGGER = Logger.getLogger(MainScreenViewController.class);
 
     @FXML
     private Canvas canvas;
@@ -36,14 +39,24 @@ public class MainScreenViewController implements Initializable {
 
     @FXML
     private void onMouseClicked(MouseEvent mouseEvent) {
-        addFigure(createFigure(mouseEvent.getX(), mouseEvent.getY()));
+        try {
+            addFigure(createFigure(mouseEvent.getX(), mouseEvent.getY()));
+        } catch (createFigureException e) {
+            System.out.println("Ошибка. Подробности в логах");
+        }
         repaint();
 
     }
 
-    private Figure createFigure(double x, double y) {
+    private Figure createFigure(double x, double y) throws createFigureException {
         Figure figure = null;
-        switch (random.nextInt(3)) {
+        int create = random.nextInt(10);
+
+        if (create < 0 || create > 5)
+            throw new createFigureException(create, "Ошибка. Попытка обращения к несуществующей фигуре:");
+
+
+        switch (create) {
             case Figure.FIGURE_TYPE_CIRCLE:
                 figure = new Circle(x, y, random.nextInt(4), Color.GREEN, random.nextInt(50));
                 break;
@@ -53,9 +66,15 @@ public class MainScreenViewController implements Initializable {
             case Figure.FIGURE_TYPE_TRIANGLE:
                 figure = new Triangle(x, y, random.nextInt(4), Color.BLUE, random.nextInt(70));
                 break;
-            default:
-                System.out.println("Unknown figure type");
+            case Figure.FIGURE_TYPE_MYFIGURE:
+                figure = new MyFigure(x, y, random.nextInt(4), Color.BLACK, random.nextInt(60));
+                break;
+            case Figure.FIGURE_TYPE_STAR:
+                figure = new Star(x, y, random.nextInt(4), Color.YELLOW, random.nextInt(60));
+                break;
+
         }
+
         return figure;
     }
 

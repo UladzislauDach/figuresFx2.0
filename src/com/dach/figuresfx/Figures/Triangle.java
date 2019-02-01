@@ -54,5 +54,6 @@ public class Triangle extends Figure {
                 new double[]{cx, cx + base / 2, cx - base / 2},
                 new double[]{cy - base / 2, cy + base / 2, cy + base / 2},
                 3);
+
     }
 }

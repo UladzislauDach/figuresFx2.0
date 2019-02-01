@@ -1,7 +1,5 @@
 package com.dach.figuresfx.Figures;
 
-import com.dach.figuresfx.Figures.Drawable;
-import com.dach.figuresfx.Figures.Figure;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.List;
@@ -23,6 +21,6 @@ public class Drawer<T extends Figure & Drawable> {
     }
 
 }
-//лок фо джи добавить библиотеку  и добавить исключительные ситуации в проект
+//"лок фо джи" добавить библиотеку  и добавить исключительные ситуации в проект
 // (подумать куда добавить (фигура не равноа налл и где в свич кейсе перебираем ситуации) исключительная ситу
-// будет мои собственныЛм мсключением.
+// будет моим собственным мсключением.
