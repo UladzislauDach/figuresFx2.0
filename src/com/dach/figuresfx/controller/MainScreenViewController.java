@@ -7,7 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import org.apache.log4j.Logger;
+
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,7 +19,6 @@ public class MainScreenViewController implements Initializable {
     private List<Figure> figures = new ArrayList<>();
     private Random random;
 
-    private static final Logger LOGGER = Logger.getLogger(MainScreenViewController.class);
 
     @FXML
     private Canvas canvas;
